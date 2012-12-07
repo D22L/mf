@@ -1,0 +1,113 @@
+#!/usr/bin/env mkb
+options
+{
+	module_path="$MARMALADE_ROOT/examples"
+}
+
+subprojects
+{
+	iw2d
+	iwresmanager
+	SoundEngine
+}
+
+includepath
+{
+	./source/Main
+	./source/Common
+	./source/Scene
+	./source/Animate
+	./source/Custom
+}
+files
+{
+	[Main]
+	(source/Main)
+	Main.cpp
+	Main.h
+	TouchPad.cpp
+	TouchPad.h
+	Desktop.cpp
+	Desktop.h
+	Locale.cpp
+	Locale.h
+	ResourceManager.cpp
+	ResourceManager.h
+	ResourceHolder.cpp
+	ResourceHolder.h
+	DataManager.cpp
+	DataManager.h
+
+	[Common]
+	(source/Common)
+	IObject.h
+	IScreenObject.h
+	ISprite.h
+	ISpriteOwner.h
+	AbstractScreenObject.h
+	AbstractScreenObject.cpp
+	AbstractSpriteOwner.h
+	AbstractSpriteOwner.cpp
+
+	[Scene]
+	(source/Scene)
+	Scene.cpp
+	Scene.h
+	Background.cpp
+	Background.h
+	Sprite.cpp
+	Sprite.h
+
+	[Animate]
+	(source/Animate)
+        IAnimatedSprite.h
+	AnimatedSprite.cpp
+	AnimatedSprite.h
+	CompositeSprite.cpp
+	CompositeSprite.h
+	AnimateMessage.cpp
+	AnimateMessage.h
+	AnimateAction.cpp
+	AnimateAction.h
+	MoveAction.cpp
+	MoveAction.h
+	SendMessageAction.cpp
+	SendMessageAction.h
+	SoundAction.cpp
+	SoundAction.h
+        Button.cpp
+        Button.h
+        SwitchButton.cpp
+        SwitchButton.h
+
+	[Custom]
+	(source/Custom)
+        Intro.cpp
+        Intro.h
+        IntroTitle.cpp
+        IntroTitle.h
+        IntroMenu.cpp
+        IntroMenu.h
+        IntroSound.cpp
+        IntroSound.h
+
+	[Data]
+	(data)
+	locale_en.group
+	locale_ru.group
+	sounds.group
+}
+
+assets
+{
+	(data)
+	back.png
+	background.png
+	sprite.png
+	music.mp3
+
+	(data-ram/data-gles1, data)
+	locale_en.group.bin
+	locale_ru.group.bin
+	sounds.group.bin
+}

@@ -1,0 +1,11 @@
+CIwResGroup
+{
+	name "locale_ru"
+
+	"./locale_ru/play.png"
+	"./locale_ru/setup.png"
+	"./locale_ru/musicoff.png"
+	"./locale_ru/musicon.png"
+	"./locale_ru/soundoff.png"
+	"./locale_ru/soundon.png"
+}

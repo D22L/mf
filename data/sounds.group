@@ -1,0 +1,33 @@
+CIwResGroup
+{
+	name "sounds"
+
+	"./sounds/menubutton.wav"
+	"./sounds/sound.wav"
+
+	CIwSoundSpec
+	{
+		name		"menubutton"
+		data		"menubutton"
+		vol 		0.9
+		loop		false
+	}
+
+	CIwSoundSpec
+	{
+		name		"sound"
+		data		"sound"
+		vol 		0.9
+		loop		false
+	}
+
+	CIwSoundGroup
+	{
+		name		"sound_effects"
+		maxPolyphony 	8
+		killOldest	true
+		addSpec		"menubutton"
+		addSpec		"sound"
+	}
+
+}

@@ -16,7 +16,7 @@ class Button: public AnimatedSprite {
 		AnimateMessage* msgDown;
 		AnimateMessage* msgUp;
 		int message;
-		AbstractSpriteOwner* receiver;
+		ISpriteOwner* receiver;
 		void configure();
 	public:
 		Button(ISpriteOwner* scene, const char* res, int x, int y, int zOrder = 0, int loc = elNothing);
@@ -25,7 +25,7 @@ class Button: public AnimatedSprite {
 		virtual bool sendMessage(int msg, uint64 timestamp = 0, void* data = NULL);
 		virtual void doMessage(int msg, void* data = NULL, uint64 timestamp = 0);
 		virtual bool isPausable() const {return false;}
-		void addReceiver(int m, AbstractSpriteOwner* r);
+		void addReceiver(int m, ISpriteOwner* r);
 };
 
 #endif	// _BUTTON_H_

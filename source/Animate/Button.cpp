@@ -67,7 +67,7 @@ bool Button::sendMessage(int msg, uint64 timestamp, void* data) {
 	return AnimatedSprite::sendMessage(msg, timestamp, data);
 }
 
-void Button::addReceiver(int m, AbstractSpriteOwner* r) {
+void Button::addReceiver(int m, ISpriteOwner* r) {
 	message  = m;
 	receiver = r;
 }

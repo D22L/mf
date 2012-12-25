@@ -49,13 +49,14 @@ class AnimatedSprite: public Sprite,
 		virtual CIw2DImage* getImage(int id = 0);
 		virtual int  getState();
 		virtual bool setState(int newState);
-		virtual void update(uint64 timestamp);
+		virtual void update(uint64 timestamp, bool isPaused);
 		virtual void refresh();
 		virtual bool sendMessage(int msg, uint64 timestamp = 0, void* data = NULL);
 		virtual bool isBuzy() {return false;}
 		virtual bool isValidMessage(int msg) {return (msg <= emtSystemMessage);}
 		virtual void doMessage(int msg, void* data = NULL, uint64 timestamp = 0);
 		virtual void unload();
+		virtual void addPauseDelta(uint64 pauseDelta);
 
 	typedef map<int,  ResourceHolder*>::iterator IIter;
 	typedef pair<int, ResourceHolder*> IPair;

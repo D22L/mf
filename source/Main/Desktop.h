@@ -59,8 +59,9 @@ class Desktop {
         bool checkBounce(int id, int msg);
 		void getScreenSizes();
         uint64 currentTimestamp;
+		bool isMusicStarted;
 	public:
-        Desktop(): touches(), names(), currentScene(NULL) {}
+		Desktop(): touches(), names(), currentScene(NULL), isMusicStarted(false) {}
 		void init();
 		void release();
 		void update(uint64 timestamp);
@@ -76,6 +77,8 @@ class Desktop {
 		void* getName(string name);
 		void startMusic(const char* res);
 		void stopMusic();
+		void suspend();
+		void resume();
         set<int> touches;
 		map<string, void*> names;
 

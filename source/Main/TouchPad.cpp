@@ -1,5 +1,5 @@
 #include "TouchPad.h"
-#include "Desktop.h"
+#include "IAnimatedSprite.h"
 
 TouchPad touchPad;
 

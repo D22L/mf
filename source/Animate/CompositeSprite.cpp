@@ -5,6 +5,11 @@ CompositeSprite::CompositeSprite(ISpriteOwner* scene, int x, int y, int zOrder):
 																		, AbstractSpriteOwner() {
 }
 
+void CompositeSprite::addPauseDelta(uint64 pauseDelta) {
+	AbstractSpriteOwner::correctPauseDelta(pauseDelta);
+	AnimatedSprite::addPauseDelta(pauseDelta);
+}
+
 int CompositeSprite::getXSize(int xSize) {
 	return owner->getXSize(xSize);
 }
@@ -28,9 +33,9 @@ void CompositeSprite::refresh() {
 	}
 }
 
-void CompositeSprite::update(uint64 timestamp) {
-	AnimatedSprite::update(timestamp);
-	AbstractSpriteOwner::update(timestamp);
+void CompositeSprite::update(uint64 timestamp, bool isPaused) {
+	AnimatedSprite::update(timestamp, isPaused);
+	AbstractSpriteOwner::update(timestamp, isPaused);
 }
 
 bool CompositeSprite::isBuzy() {

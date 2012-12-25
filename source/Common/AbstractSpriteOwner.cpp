@@ -12,6 +12,12 @@ AbstractSpriteOwner::~AbstractSpriteOwner() {
 	}
 }
 
+void AbstractSpriteOwner::correctPauseDelta(uint64 pauseDelta) {
+	for (ZIter p = zOrder.begin(); p != zOrder.end(); ++p) {
+		p->second->addPauseDelta(pauseDelta);
+	}
+}
+
 void AbstractSpriteOwner::addSprite(AbstractScreenObject* sprite, int z) {
 	sprite->incrementUsage();
 	zOrder.insert(ZPair(z, sprite));
@@ -36,9 +42,9 @@ int AbstractSpriteOwner::getDesktopHeight() {
 	return desktop.getHeight();
 }
 
-void AbstractSpriteOwner::update(uint64 timestamp) {
+void AbstractSpriteOwner::update(uint64 timestamp, bool isPaused) {
 	for (ZIter p = zOrder.begin(); p != zOrder.end(); ++p) {
-		p->second->update(timestamp);
+		p->second->update(timestamp, isPaused);
 	}
 }
 

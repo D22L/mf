@@ -128,7 +128,15 @@ bool AnimatedSprite::sendMessage(int msg, uint64 timestamp, void* data) {
 	messages.push_back(Message(msg, timestamp, data));
 	return true;
 }
-void AnimatedSprite::update(uint64 timestamp) {
+
+void AnimatedSprite::addPauseDelta(uint64 pauseDelta) {
+	for (CIter p = currentMessages.begin(); p != currentMessages.end(); ++p) {
+		p->timestamp += pauseDelta;
+	}
+}
+
+void AnimatedSprite::update(uint64 timestamp, bool isPaused) {
+	if (isPaused && isPausable()) return;
 	bool isEmpty = true;
 	for (MIter p = messages.begin(); p != messages.end(); ++p) {
 		if (p->timestamp <= lastTimestamp) continue;

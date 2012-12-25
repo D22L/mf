@@ -12,6 +12,8 @@
 #include "Intro.h"
 
 void init() {
+	dm.init();
+
 	// Initialise Mamrlade graphics system and Iw2D module
 	IwGxInit();
     Iw2DInit();
@@ -27,7 +29,6 @@ void init() {
 
 	touchPad.init();
 	desktop.init();
-	dm.init();
 }
 
 void release() {

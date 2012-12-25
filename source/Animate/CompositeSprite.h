@@ -17,11 +17,12 @@ class CompositeSprite: public AnimatedSprite
 		virtual int  getYPos(int y);
 		virtual bool setState(int newState);
 		virtual void refresh();
-		virtual void update(uint64 timestamp);
+		virtual void update(uint64 timestamp, bool isPaused);
 		virtual bool isBuzy();
 		virtual bool sendMessage(int msg, uint64 timestamp = 0, void* data = NULL);
 		virtual bool sendMessage(int msg, int x, int y);
 		virtual void unload();
+		virtual void addPauseDelta(uint64 pauseDelta);
 };
 
 #endif	// _COMPOSITESPRITE_H_

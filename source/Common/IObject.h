@@ -10,7 +10,7 @@ class IObject {
 		virtual int  getState()                                                    = 0;
 		virtual bool sendMessage(int msg, uint64 timestamp = 0, void* data = NULL) = 0;
 		virtual bool sendMessage(int msg, int x, int y)                            = 0;
-		virtual void update(uint64 timestamp)                                      = 0;
+		virtual void update(uint64 timestamp, bool isPaused)                       = 0;
 		virtual void refresh()                                                     = 0;
 		virtual void unload()                                                      = 0;
 };

@@ -42,6 +42,8 @@ class AbstractScreenObject: public IScreenObject {
 		void setAlpha(CIw2DAlphaMode a) {alpha = a;}
 		virtual bool setState(int state) {return false;}
 		void setName(string name);
+		virtual void addPauseDelta(uint64 pauseDelta) {}
+		virtual bool isPausable() const {return true;}
 		static IObject* getName(string name);
 };
 

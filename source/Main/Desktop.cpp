@@ -11,6 +11,7 @@ void Desktop::init() {
 	setScene(NULL);
 	isKeyAvailable = (s3eKeyboardGetInt(S3E_KEYBOARD_HAS_KEYPAD) || s3eKeyboardGetInt(S3E_KEYBOARD_HAS_ALPHA));
     s3eSurfaceRegister(S3E_SURFACE_SCREENSIZE, ScreenSizeChangeCallback, NULL);
+	isMusicStarted = false;
 }
 
 void Desktop::release() {
@@ -96,7 +97,7 @@ void Desktop::update(uint64 timestamp) {
 		s3eKeyboardUpdate();
 	}
 	if (currentScene != NULL) {
-		currentScene->update(timestamp);
+		currentScene->update(timestamp, false);
 	}
 }
 
@@ -110,10 +111,24 @@ void Desktop::startMusic(const char* res) {
 	if (s3eAudioIsCodecSupported(S3E_AUDIO_CODEC_MP3) &&
 		s3eAudioIsCodecSupported(S3E_AUDIO_CODEC_PCM))
         s3eAudioPlay(res, 0);
+	isMusicStarted = true;
 }
 
 void Desktop::stopMusic() {
+	isMusicStarted = false;
 	s3eAudioStop();
+}
+
+void Desktop::suspend() {
+	if (isMusicStarted) {
+		s3eAudioPause();
+	}
+}
+
+void Desktop::resume() {
+	if (isMusicStarted) {
+		s3eAudioResume();
+	}
 }
 
 bool Desktop::isQuitMessageReceived() {

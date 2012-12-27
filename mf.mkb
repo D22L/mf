@@ -106,7 +106,7 @@ assets
 	sprite.png
 	music.mp3
 
-	(data-ram/data-gles1, data)
+	(data-ram/data-gles1, data/data-gles1)
 	locale_en.group.bin
 	locale_ru.group.bin
 	sounds.group.bin
